@@ -12,6 +12,7 @@ public class Principal {
         filme.setNotaUm (1);
         filme.setNotaDois (3);
         filme.setNotaTres (6);
+        filme.setDuracaoEmMinutos ( 150 );
 
         filme.setNome ("HarryPotter");
         filme.exibeFichaTecnica ();
