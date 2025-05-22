@@ -1,8 +1,15 @@
 package Modelos;
 
-import Calculos.Classificavel;
+import Interfaces.Classificavel;
 
 public class Filme extends Titulo implements Classificavel {
+
+    //constructor
+    public Filme (String nomeFilme, int anoDeLancamento, int minutos) {
+        this.setNome ( nomeFilme );
+        this.setAnoDeLancamento ( anoDeLancamento );
+        this.setDuracaoEmMinutos ( minutos );
+    }
 
     @Override
     public void exibeFichaTecnica () {
@@ -14,5 +21,10 @@ public class Filme extends Titulo implements Classificavel {
     @Override
     public int getClassificacao () {
         return 0;
+    }
+
+    @Override
+    public String toString () {
+        return "Nome : "+ getNome ();
     }
 }

@@ -6,14 +6,12 @@ public class Titulo {
     private boolean incluidoNoPlano ;
     private double somaDasAvaliacoes ;
     private int duracaoEmMinutos ;
+    private int totalVisualizacoes;
 
 
     int notaUm;
     int notaDois;
     int notaTres;
-
-
-
 
 
     //metodos
@@ -27,7 +25,6 @@ public class Titulo {
     public int somaDasAvaliacoes(){
       return (notaUm + notaDois + notaTres) / 3;
     }
-
 
     //getters
 
@@ -64,6 +61,11 @@ public class Titulo {
         return duracaoEmMinutos;
     }
 
+    public int getTotalDeVisualizacoes () {
+        return totalVisualizacoes;
+    }
+
+
     //Setters
     public void setNotaUm (int notaUm) {
         this.notaUm = notaUm;
@@ -95,6 +97,18 @@ public class Titulo {
 
     public void setDuracaoEmMinutos (int duracaoEmMinutos) {
         this.duracaoEmMinutos = duracaoEmMinutos;
+    }
+
+    public void setTotalDeVisualizacoes (int totalDeVisualizacoes) {
+        this.totalVisualizacoes = totalDeVisualizacoes;
+    }
+
+    public int getClassificacao(){
+        if (totalVisualizacoes > 100){
+            return 4;
+        }else {
+            return 2;
+        }
     }
 
 
