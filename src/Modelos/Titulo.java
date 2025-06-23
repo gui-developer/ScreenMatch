@@ -1,10 +1,15 @@
 package Modelos;
 
-public class Titulo {
+import com.google.gson.annotations.SerializedName;
+
+public class Titulo implements Comparable<Titulo> {
+    @SerializedName ("Title")
     private String nome;
+    //@SerializedName ("Year")
     private int anoDeLancamento;
     private boolean incluidoNoPlano ;
     private double somaDasAvaliacoes ;
+    //@SerializedName ( "Runtime" )
     private int duracaoEmMinutos ;
     private int totalVisualizacoes;
 
@@ -12,6 +17,16 @@ public class Titulo {
     int notaUm;
     int notaDois;
     int notaTres;
+
+    public Titulo (TituloAPI tituloAPI) {
+        this.nome = tituloAPI.title ();
+        this.anoDeLancamento = Integer.valueOf ( tituloAPI.year () );
+        this.duracaoEmMinutos = Integer.valueOf ( tituloAPI.runtime ().substring ( 0,2 ) );
+    }
+
+    public Titulo () {
+
+    }
 
 
     //metodos
@@ -111,5 +126,20 @@ public class Titulo {
         }
     }
 
+//comparando titulos para ordenar em ordem alfabetica no collections.sort
+    @Override
+    public int compareTo (Titulo outroTitulo) {
+        return this.getNome ().compareTo ( outroTitulo.getNome () );
+    }
 
+    @Override
+    public String toString () {
+        return "Titulo{" +
+                "Nome:'" + nome + '\'' +
+                ", Ano de lancamento:" + anoDeLancamento +
+                ", Duracao em minutos:" + duracaoEmMinutos +
+                '}';
+    }
 }
+
+

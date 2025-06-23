@@ -8,9 +8,21 @@ public class Serie extends Titulo {
     Titulo titulo = new Titulo ();
 
 
+
+    public Serie (String titulo, boolean continuaAtiva, int temporadas, int quantidadeDeEpisodios) {
+        this.setNome ( titulo );
+        this.continuaAtiva = continuaAtiva;
+        this.temporadas = temporadas;
+        this.quantidadeDeEpisodios = quantidadeDeEpisodios;
+    }
+
     //getters
     public int getTemporadas () {
         return temporadas;
+    }
+
+    public Titulo getTitulo () {
+        return titulo;
     }
 
     public int getQuantidadeDeEpisodios () {
@@ -31,4 +43,8 @@ public class Serie extends Titulo {
         return  quantidadeDeEpisodios * temporadas * titulo.getDuracaoEmMinutos();
     }
 
+    @Override
+    public String toString () {
+        return getNome ();
+    }
 }

@@ -25,6 +25,6 @@ public class Filme extends Titulo implements Classificavel {
 
     @Override
     public String toString () {
-        return "Nome : "+ getNome ();
+        return getNome ();
     }
 }
